@@ -1,6 +1,7 @@
 from pymongo import Connection
 from datetime import datetime
 from pprint import pprint
+from mongodb import start_mongo
 
 db_info = "test"
 
@@ -22,6 +23,7 @@ class Context(object):
     def __init__(self,collection_name):
         self.collection=getattr(Connection().test,collection_name)
         self.data_dict={}
+	start_mongo()
         
 
     def append(self,function_name,function_kwargs):
